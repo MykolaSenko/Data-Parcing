@@ -99,3 +99,6 @@ Thumbs.db
 # Data files
 source_data/
 output_data/
+
+
+script.py
