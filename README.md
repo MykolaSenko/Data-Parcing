@@ -61,8 +61,7 @@ Open `data_parcing_notebook.ipynb` for step-by-step data inspection and parsing 
 - At the end, all processed records are written to a CSV file with appropriate headers.
 
 The whole process can be summarized in the following flowchart:
-```mermaid
-flowchart TD
+```flowchart TD
     A[Read input file in binary mode] --> B[Split content by null delimiter (\x00)]
     B --> C[Decode fields using 'latin-1' and filter empty fields]
     C --> D[Identify record start by short numeric Serial Number]
