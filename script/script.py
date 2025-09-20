@@ -94,8 +94,13 @@ def process_chunk(chunk):
 
     # Regex to identify part numbers with dots (e.g., "X530.108.146.000")
     # and reference numbers (e.g., "72311106").
-    part_num_other_format_regex = re.compile(r'^[A-Z0-9\.]+$')
+    part_num_other_format_regex = re.compile(r'^[A-Z0-9\.]+$') # Contains only uppercase letters, digits, and dots.
+                                                                # Has at least one character
+                                                                # No spaces, no lowercase letters, no other symbols
     ref_num_regex = re.compile(r'^[0-9]{8,}$') # Reference numbers are typically long
+                                                # Contains only digits (0–9)
+                                                # Has a minimum length of 8 digits
+                                                # No letters, no spaces, no symbols
 
     # The first field is usually the Part Number, but not always (e.g., record #20).
     # We will tentatively assign it and correct it later if needed.
