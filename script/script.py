@@ -129,11 +129,26 @@ def process_chunk(chunk):
         names.insert(0, record['Part Number']) # The tentative part number was actually the first name.
         record['Part Number'] = ''
         
+        # Custom mapping for record #20. There is a mess with part names and languages.
+        # We will assign names based on a predefined mapping.
+        mapping = {
+            0: "Part Name Language 2",
+            1: "Part Name English",
+            2: "Part Name Language 4",
+            3: "Part Name Language 1",
+            4: "Part Name Language 3",
+            5: "Part Name Language 5",
+        }
+        
     # Assign the collected names to the appropriate columns.
     name_headers = headers[2:8] # "Part Name English" through "Part Name Language 5"
     for i, name in enumerate(names):
-        if i < len(name_headers):
-            record[name_headers[i]] = name
+        if record['Serial Number'] == '20':
+            if i in mapping: # Use custom mapping for record #20
+                record[mapping[i]] = name
+        else:
+            if i < len(name_headers):
+                record[name_headers[i]] = name
             
     current_pos = names_end_pos
 

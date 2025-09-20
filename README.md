@@ -71,7 +71,7 @@ The whole process can be summarized in the following flowchart:
     F --> H[Assign tentative Part Number (first field)]
     H --> I[Build list of names in different languages]
     I --> J[Handle special case for record #20 (no part number)]
-    J --> K[Assign names to appropriate columns]
+    J --> K[Assign names to appropriate columns, handling record #20 reodering languages]
     K --> L[Identify and assign Part Number in Other Format and Reference Number using regex]
     L --> M[Assign Additional Information (if exists)]
     M --> N[Remove irrelevant data for record #61]
