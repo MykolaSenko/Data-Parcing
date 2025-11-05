@@ -4,8 +4,7 @@ import re
 def parse_data(input_file_path, output_file_path):
     """
     Parses a custom binary/text format file, extracts structured data,
-    and writes it to a CSV file.
-
+    and writes it to a CSV file. 
     The input file uses null characters ('\\x00') as delimiters. Each record
     starts with a numeric serial number. The number of fields per record is variable.
 
